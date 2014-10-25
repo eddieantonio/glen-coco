@@ -11,9 +11,6 @@
     "type": "git",
     "url": "git://github.com/eddieantonio/glen-coco.git"
   },
-  "engines": {
-    "node": ">=0.8.0"
-  },
   "keywords": [
     "n-gram",
     "language-model",
