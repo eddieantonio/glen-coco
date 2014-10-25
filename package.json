@@ -2,6 +2,7 @@
   "name": "glen-coco",
   "version": "0.0.0",
   "description": "Cached Language Model with Kneser-Ney Smoothing",
+  "author": "Eddie Antonio Santos <easantos@ualberta.ca>",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jasmine"
@@ -10,19 +11,21 @@
     "type": "git",
     "url": "git://github.com/eddieantonio/glen-coco.git"
   },
+  "engines": {
+    "node": ">=0.8.0"
+  },
   "keywords": [
     "n-gram",
     "language-model",
     "kneser-ney"
   ],
-  "author": "Eddie Antonio Santos",
   "license": "Apache",
   "bugs": {
     "url": "https://github.com/eddieantonio/glen-coco/issues"
   },
   "homepage": "https://github.com/eddieantonio/glen-coco",
   "devDependencies": {
-    "coffee-script": "^1.8.0",
-    "jasmine": "^2.0.1"
+    "coffee-script": "1.8.x",
+    "jasmine": "2.x"
   }
 }
