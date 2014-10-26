@@ -10,31 +10,31 @@ describe 'Vocabulary', ->
     expect(vocab.length).toBe 0
 
 
-  describe '::vivfy', ->
+  describe '::vivify', ->
     it 'increases the count when new words are vivified', ->
-      vocab.vivfy 'fhqwhgads'
+      vocab.vivify 'fhqwhgads'
       expect(vocab.length).toBe 1
 
-      vocab.vivfy 'herp'
+      vocab.vivify 'herp'
       expect(vocab.length).toBe 2
 
     it 'does not allow insertion of the empty string', ->
       expect( ->
-        vocab.vivfy('')
+        vocab.vivify('')
       ).toThrow()
 
     it 'returns a non-zero integer', ->
-      value = vocab.vivfy('-module')
+      value = vocab.vivify('-module')
       expect(vocab.length).toBe 1
       expect(value).toBeGreaterThan 0
 
     it 'handles UTF-8 characters', ->
-      value = vocab.vivfy 'ಠ_ಠ'
+      value = vocab.vivify 'ಠ_ಠ'
       expect(value).toBeGreaterThan 0
 
     it 'throws if a new special token is inserted', ->
       expect( ->
-        vocab.vivfy '\x17goobidigoo'
+        vocab.vivify '\x17goobidigoo'
       ).toThrow()
 
 
@@ -63,7 +63,7 @@ describe 'Vocabulary', ->
     ]
 
     # Vivify everything in the input.
-    vivfyResult = tokens.map(vocab.vivfy.bind(vocab))
+    vivifyResult = tokens.map(vocab.vivify.bind(vocab))
 
     # Because of the duplicate tokens, there should be less tokens in the
     # vocabulary.
@@ -71,13 +71,13 @@ describe 'Vocabulary', ->
 
     # If we lookup all the tokens again, we should get the exact same results
     # as vifify.
-    expect(tokens.map(vocab.lookup.bind(vocab))).toEqual vivfyResult
+    expect(tokens.map(vocab.lookup.bind(vocab))).toEqual vivifyResult
 
   it 'it can store and retrieve UTF-8 strings', ->
     identifier = 'π'
 
-    vocab.vivfy 'dummy_token'
-    vocab.vivfy identifier
+    vocab.vivify 'dummy_token'
+    vocab.vivify identifier
 
     expect(vocab.lookup(identifier)).toBeGreaterThan 1
     
